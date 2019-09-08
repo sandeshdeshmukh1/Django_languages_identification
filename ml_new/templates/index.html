@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language_Identification</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+  nav{
+    display: flex;
+    background: #667db6;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height: 14vh;
+        
+
+
+  }
+  
+  nav .logo{
+    margin-left: 25rem;
+    font-family: 'Lobster', cursive;
+    font-size: 3rem;
+    
+    color: #fff;
+  }
+  
+    .barcontainer {
+          position: relative;
+          right: 10%;
+          bottom: 20%;
+         /* border: 3px solid black;*/
+          border-radius: 5px 5px 0 0;
+          width: 19rem;
+          margin: 0 auto;
+          margin-top:5rem;
+          min-height: 25vw;
+          max-height: 50vw;
+          min-width: 40%;
+          max-width: 90%;
+          z-index: 1;
+        }
+        #bar1{
+          background-color: #76D7C4  ;
+        }
+        #bar2{
+          background-color: #F4D03F  ;
+        }
+        #bar3{
+          background-color: #E74C3C  ;
+        
+        }
+        #bar4{
+          background-color: #2980B9  ;
+        
+        }
+        #bar5{
+          background-color: #E67E22  ;
+        
+        }
+
+      
+
+        .bar {
+          position: absolute;
+          display: inline-block;
+          bottom: 0;
+          border: 1px solid black;
+          border-radius: 6px 6px 0 0;
+          background: #fff;
+          width: 30%;
+          height: 90%;
+          margin-left: 1rem;
+          text-align: center;
+          color: white;
+          text-shadow: 1px 1px 0 black;
+          box-shadow: 4px 0 8px #888;
+        }
+
+        .barlabel {
+          position: absolute;
+          border-top: 2px solid black;
+          background: #fff;
+          bottom: 0;
+          width: 100%;
+          text-shadow: 1px 1px 0px black;
+          color: white;
+        }
+        .bar:nth-child(1){
+          left: 0%;
+        }
+
+        .bar:nth-child(2) {
+          left: 32%;
+
+        }
+
+        .bar:nth-child(3) {
+          left: 64%;
+        }
+
+        .bar:nth-child(4) {
+          left: 95%;
+        }
+
+        .bar:nth-child(5) {
+          left: 127%;
+        }
+
+        .bar:nth-child(6) {
+          left: 180%;
+        }
+  }
+  }
+
+       
+
+</style>
+</head>
+<body style="background-color: #E5E7E9;" ><!--background:url({%static '/static/indian-languages.png'%});-->
+  <nav>
+    <div class="logo">                                                                                           
+      <p>Langauage Identification</p>
+    </div>
+    
+  </nav> 
+  {% for j in bar_data %}
+   <div class="figcontainer" style="margin-left: 30rem;">
+    <h1 style="margin-left: 8rem;">Bar Chart Of Langauges Predictions</h1>
+        <div class='barcontainer'>
+         <div class='bar' id="bar1" style='height:{{j.tamil}}%'>
+                <div class='barlabel'>
+                  tamil <br> <p style="font-size: 14px; color: #0f0; font-weight: bold;">{{j.tamil}}%</p>
+                </div>
+              </div>
+              <div class='bar' id="bar2" style='height:{{j.telugu}}%'>
+                <div class='barlabel'>
+                  Telugu <br> <p style="font-size: 14px; color: #0f0; font-weight: bold;">{{j.telugu}}%</p>
+                </div>
+              </div>
+              <div class='bar' id="bar3" style='height:{{j.gujarati}}%'>
+                <div class='barlabel'>
+                  Gujarati <br> <p style="font-size: 14px; color:#0f0; font-weight: bold; ">{{j.gujarati}}%</p>
+                </div>
+              </div>
+              <div class='bar' id="bar4" style='height:{{j.marathi}}%'>
+                <div class='barlabel'>
+                  Marathi <br> <p style="font-size: 14px; color:#0f0; font-weight: bold; ">{{j.marathi}}%</p> </div>
+              </div>
+              <div class='bar' id="bar5" style='height:{{j.hindi}}%'>
+                <div class='barlabel'>
+                  Hindi <br> <p style="font-size: 14px; color:#0f0; font-weight: bold; ">{{j.hindi}}%</p>
+                </div>
+              </div>
+              </div>
+            </div>  
+          </div>
+          {% empty %}
+          <div class="figcontainer" style="margin-left: 30rem;">
+    <h1 style="margin-left: 8rem;">Bar Chart Of Langauges Predictions</h1>
+        <div class='barcontainer'>
+         <div class='bar' style='height:{{j.tamil}}%'>
+                <div class='barlabel'>
+                  tamil
+                </div>
+              </div>
+              <div class='bar' style='height:{{j.telugu}}%'>
+                <div class='barlabel'>
+                  Telugu
+                </div>
+              </div>
+              <div class='bar' style='height:{{j.gujarati}}%'>
+                <div class='barlabel'>
+                  Gujarati
+                </div>
+              </div>
+              <div class='bar' style='height:{{j.marathi}}%'>
+                <div class='barlabel'>
+                  Marathi </div>
+              </div>
+              <div class='bar' style='height:{{j.hindi}}%'>
+                <div class='barlabel'>
+                  Hindi
+                </div>
+              </div>
+              </div>
+            </div>  
+          </div>
+          {% endfor  %}
+    <main style="display: flex; margin-top: -29rem;margin-left: 2rem;">
+      <div class="Audiofile" class="card" style="background-color: #F2F3F4;  border-style: double; border-radius: 10px; padding: 10px; margin-left: 5rem;height: 30vh;">
+        <div class="card-body" >
+          <img src="https://img.icons8.com/dusk/64/000000/high-volume.png" style="width: 2rem; height: 3rem;">
+                <form method="POST" action="/predict/">
+                  {% csrf_token %}
+                  
+                    <p style="position: absolute; margin-top: -5rem;"><p>{{i.input_file}}</p><input type="file" accept="audio/*" name="audioSave"></p>
+                   
+                    <button class="btn btn-success" type="submit" name="Submit" style="padding: 10px 10rem 10px 10rem; margin-top: 60px;">Predict</button>
+                </form>
+          
+        </div>
+
+        <div class="Audiofile" class="card" style="background-color: #F2F3F4;  border-style: double; border-radius: 10px; padding: 10px; margin-top: 2rem;height: 20vh;">
+          {% for i in output %}
+        <div class="card-body">
+          <h1 style="text-transform: uppercase;font-family: 'Oswald', sans-serif;  ">{{i.output_file}}</h1>
+        </div>
+        {%  endfor %}
+            
+        
+      <a href="https://icons8.com/icon/43168/audio"></a>
+     
+      
+        <!-- <div class="AudioCapture" class="card" style="background-color: #F2F3F4; border-style: double; border-radius: 10px; padding: 10px; margin-left: 10px;">
+          <div class="card-body">
+            <p>
+            <button id="btnStart" class="btn btn-success">START RECORDING</button><br/>
+            <button id="btnStop" class="btn btn-danger" style="margin-top: 10px;">STOP RECORDING</button></p>
+            
+            <audio controls></audio>
+            <p>Record</p>
+            <audio id="Audio2" controls></audio>
+            <p>Download</p>
+          </div>
+           
+        </div> -->
+        
+       
+        
+        
+     </main>    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
